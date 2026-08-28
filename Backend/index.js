@@ -45,11 +45,11 @@ appRoute.use(async (req, res, next) => {
 
 appRoute.use("/api/v1", teacherRoute);
 
-// For local development running via `node index.js`
-if (process.env.NODE_ENV !== "production") {
+// Only listen when NOT running on Vercel
+if (!process.env.VERCEL) {
   const PORT = process.env.PORT || 8000;
   appRoute.listen(PORT, () => {
-    console.log(`Application Running on port ${PORT}`);
+    console.log(`Application Running locally on port ${PORT}`);
   });
 }
 
