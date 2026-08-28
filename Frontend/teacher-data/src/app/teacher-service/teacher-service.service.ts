@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from '../../environments/environment.prod';
 
 export interface Teacher {
   teacherId?: number;
@@ -18,7 +19,7 @@ export class TeacherServiceService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  commonEndPoint = 'http://localhost:3000/api/v1';
+  commonEndPoint = environment.apiUrl;
   addTeacherEndPoint = this.commonEndPoint + '/add-teacher';
   listTeacherEndPoint = this.commonEndPoint + '/list-teacher';
   updateTeacherEndPoint = this.commonEndPoint + '/update-teacher';
