@@ -11,7 +11,9 @@ appRoute.use(cors({
   origin: [
     "http://localhost:4200", 
     "https://sample-angular-frontend.vercel.app"
-  ] 
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
 }));
 
 appRoute.use(express.json());
