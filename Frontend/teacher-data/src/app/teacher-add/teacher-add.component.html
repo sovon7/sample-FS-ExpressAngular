@@ -1,0 +1,80 @@
+<div class="teacher-form-card">
+  <div *ngIf="successMessage" class="success-toast" role="status">
+    <span class="success-icon" aria-hidden="true">&#10003;</span>
+    {{ successMessage }}
+  </div>
+
+  <h3 class="form-title">{{ editing ? 'Edit Teacher' : 'Add Teacher' }}</h3>
+
+  <form (ngSubmit)="onSubmit()" #teacherForm="ngForm">
+    <div class="mb-3">
+      <label for="teacherName" class="form-label">Teacher Name</label>
+      <input
+        id="teacherName"
+        type="text"
+        class="form-control"
+        name="teacherName"
+        [(ngModel)]="teacher.teacherName"
+        placeholder="Enter teacher name"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="degreeHold" class="form-label">Degree Hold</label>
+      <input
+        id="degreeHold"
+        type="text"
+        class="form-control"
+        name="degreeHold"
+        [(ngModel)]="teacher.degreeHold"
+        placeholder="Enter degree"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="specializationSubject" class="form-label">Specialization Subject</label>
+      <input
+        id="specializationSubject"
+        type="text"
+        class="form-control"
+        name="specializationSubject"
+        [(ngModel)]="teacher.specializationSubject"
+        placeholder="Enter subject"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input
+        id="age"
+        type="number"
+        class="form-control"
+        name="age"
+        [(ngModel)]="teacher.age"
+        placeholder="Enter age"
+        min="18"
+        required
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="teacher.email"
+        placeholder="Enter email"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="teacherForm.invalid">
+      {{ editing ? 'Update Teacher' : 'Save Teacher' }}
+    </button>
+  </form>
+</div>

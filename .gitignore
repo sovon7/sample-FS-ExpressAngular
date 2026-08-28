@@ -1,0 +1,21 @@
+# Environment variables and secrets
+Backend/.env
+.env
+
+# Dependencies
+Backend/node_modules/
+Frontend/teacher-data/node_modules/
+
+# Angular build output
+Frontend/teacher-data/dist/
+Frontend/teacher-data/.angular/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

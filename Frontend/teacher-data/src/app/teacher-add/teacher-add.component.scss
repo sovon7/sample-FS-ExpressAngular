@@ -1,0 +1,59 @@
+.teacher-form-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.success-toast {
+  align-items: center;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  color: #047857;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+}
+
+.success-icon {
+  align-items: center;
+  background: #10b981;
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 0.75rem;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 10px 12px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.15);
+  border-color: #86b7fe;
+}
+
+.btn-primary {
+  border-radius: 10px;
+  font-weight: 600;
+}

@@ -1,0 +1,59 @@
+<div class="teacher-table-card">
+  <div *ngIf="successMessage" class="success-toast" role="status">
+    <span class="success-icon" aria-hidden="true">&#10003;</span>
+    {{ successMessage }}
+  </div>
+
+  <h3 class="table-title">Teacher List</h3>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover align-middle mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Teacher Name</th>
+          <th>Degree</th>
+          <th>Subject</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="teachers.length === 0">
+          <td colspan="7" class="text-center text-muted py-4">
+            No teacher data added yet.
+          </td>
+        </tr>
+        <tr *ngFor="let teacher of teachers; let index = index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ teacher.teacherName }}</td>
+          <td>{{ teacher.degreeHold }}</td>
+          <td>{{ teacher.specializationSubject }}</td>
+          <td>{{ teacher.age }}</td>
+          <td>{{ teacher.email }}</td>
+          <td class="action-buttons">
+            <button type="button" class="action-button edit-button" title="Edit teacher" (click)="editTeacher(teacher)">
+              &#9998;
+            </button>
+            <button type="button" class="action-button delete-button" title="Delete teacher" (click)="deleteTeacher(teacher)">
+              &#128465;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="teacherToDelete" class="modal-backdrop" role="presentation" (click)="cancelDelete()">
+  <section class="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="delete-title" (click)="$event.stopPropagation()">
+    <div class="modal-icon" aria-hidden="true">!</div>
+    <h4 id="delete-title">Delete teacher?</h4>
+    <p>Are you sure you want to delete {{ teacherToDelete.teacherName }}?</p>
+    <div class="modal-actions">
+      <button type="button" class="cancel-button" (click)="cancelDelete()">Cancel</button>
+      <button type="button" class="confirm-delete-button" (click)="confirmDelete()">Delete</button>
+    </div>
+  </section>
+</div>

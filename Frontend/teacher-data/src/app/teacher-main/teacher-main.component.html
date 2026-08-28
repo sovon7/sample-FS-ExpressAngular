@@ -1,0 +1,16 @@
+<div class="teacher-main-container">
+  <div class="container-fluid py-4">
+    <h2 class="page-title">Teacher Management</h2>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-md-4">
+        <app-teacher-add [editingTeacher]="editingTeacher"></app-teacher-add>
+      </div>
+
+      <div class="col-md-8">
+        <app-teacher-list (editRequested)="startEditing($event)"></app-teacher-list>
+      </div>
+    </div>
+  </div>
+</div>
+
