@@ -17,3 +17,5 @@ mongoose.connect(process.env.DBURL).then(()=>{
         console.log("Application Running");
     })
 })
+
+export default appRoute;
