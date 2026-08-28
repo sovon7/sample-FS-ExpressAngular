@@ -6,7 +6,14 @@ import { teacherRoute } from "./app/route/teacherdata.route.js";
 dotenv.config();
 
 let appRoute = express();
-appRoute.use(cors({ origin: "http://localhost:4200" }));
+
+appRoute.use(cors({ 
+  origin: [
+    "http://localhost:4200", 
+    "https://sample-angular-frontend.vercel.app"
+  ] 
+}));
+
 appRoute.use(express.json());
 
 appRoute.use("/api/v1",teacherRoute)
