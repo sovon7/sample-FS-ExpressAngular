@@ -9,31 +9,20 @@ dotenv.config();
 const appRoute = express();
 
 appRoute.use(cors({ 
-  origin: [
-    "http://localhost:4200", 
-    "https://sample-angular-frontend.vercel.app"
-  ],
+  origin: ["http://localhost:4200", "https://sample-angular-frontend.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
 
 appRoute.use(express.json());
 
-// Database connection helper for serverless environment
 let isConnected = false;
 const connectDB = async () => {
   if (isConnected) return;
-  try {
-    const db = await mongoose.connect(process.env.DBURL);
-    isConnected = db.connections[0].readyState === 1;
-    console.log("DB Connected successfully");
-  } catch (err) {
-    console.error("DB Connection Error:", err);
-    throw err;
-  }
+  const db = await mongoose.connect(process.env.DBURL);
+  isConnected = db.connections[0].readyState === 1;
 };
 
-// Middleware to ensure DB connection per request
 appRoute.use(async (req, res, next) => {
   try {
     await connectDB();
@@ -45,12 +34,9 @@ appRoute.use(async (req, res, next) => {
 
 appRoute.use("/api/v1", teacherRoute);
 
-// Only listen when NOT running on Vercel
 if (!process.env.VERCEL) {
   const PORT = process.env.PORT || 8000;
-  appRoute.listen(PORT, () => {
-    console.log(`Application Running locally on port ${PORT}`);
-  });
+  appRoute.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
 
 export default appRoute;
